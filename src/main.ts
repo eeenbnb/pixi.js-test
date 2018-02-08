@@ -1,11 +1,13 @@
 import * as PIXI from 'pixi.js'
+(window as any).PIXI = PIXI;
+import 'pixi-display'
 
 window.addEventListener('DOMContentLoaded',()=>{
-  var app = new PIXI.Application(800, 600, {backgroundColor : 0x1099bb});
+  var app = new (window as any).PIXI.Application(800, 600, {backgroundColor : 0x1099bb});
   document.body.appendChild(app.view);
 
   // create a new Sprite from an image path
-  var bunny = PIXI.Sprite.fromImage('assets/img/bunny.png')
+  var bunny = (window as any).PIXI.Sprite.fromImage('assets/img/bunny.png')
 
   // center the sprite's anchor point
   bunny.anchor.set(0.5);
